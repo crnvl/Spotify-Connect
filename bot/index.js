@@ -74,8 +74,9 @@ client.once('ready', () => {
     console.log('[Spotify Connect Server] Bot instance is ready to use');
 
     //listen
-    app.listen(port);
-    console.log("[Spotify Connect Server] Server is ready and is now listening on port " + port);
+    app.listen(port, function () {
+        console.log("[Spotify Connect Server] Server is ready and is now listening on port " + port);
+    })
 });
 client.once('reconnecting', () => {
     console.log('[Spotify Connect Server] Attempting to reconnect to Discord');

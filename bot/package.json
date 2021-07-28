@@ -6,6 +6,7 @@
     "distube": "^2.8.15",
     "express": "^4.17.1",
     "ffmpeg-static": "^4.4.0",
+    "https": "^1.0.0",
     "merge-options": "^3.0.4",
     "node-fetch": "^2.6.1",
     "spotify-url-info": "^2.2.3",
@@ -16,7 +17,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "main": "node index.js"
   },
   "author": "",
   "license": "ISC",
