@@ -35,10 +35,10 @@ Please feel free to contribute to this project. You can always create [Issues](h
  and more...
 
  # Todo List
- - [ ] Fix Music Playback (It doesn't always grab the right track)
+ - [x] Fix Music Playback (It doesn't always grab the right track)
  - [ ] Check if a track has been skipped or ended and use the queue function accordingly
- - [ ] Remove Debug Logs, Error Prints, etc.
- - [ ] Create a user-friendly GUI for the Client
+ - [x] Remove Debug Logs, Error Prints, etc.
+ - [x] Create a user-friendly GUI for the Client
 
 # Knowledge Base
 ## How to check, if my installation has been added to `PATH`

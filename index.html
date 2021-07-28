@@ -7,31 +7,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Connect</title>
     <script src="https://spotify-player.herokuapp.com/spotify-player.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/820afcb282.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+
+    <div class="s003">
+        <h1 class="text">Spotify Connect</h1>
+        <form>
+            <div class="inner-form">
+                <div class="input-field second-wrap">
+                    <input id="search" type="text" placeholder="IP" class="searchbar" />
+                </div>
+                <div class="input-field third-wrap">
+                    <button class="btn-search" type="button" onclick="initSpotifyConnect()">
+                        🔗︁
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="js/extention/choices.js"></script>
     <script>
+        const choices = new Choices('[data-trigger]', {
+            searchEnabled: false,
+            itemSelectText: '',
+        });
+    </script>
+    <script>
+        var domain = "";
         var spotifyPlayer = new SpotifyPlayer();
 
         spotifyPlayer.on('update', response => {
-
-            console.log(response.item.name)
-            fetch("http://localhost:42069/api/v1/playback", {
-                    method: "post",
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        progress_ms: response.progress_ms,
-                        is_playing: response.is_playing,
-                        name: response.item.name,
-                        artist: response.item.artists[0].name
-                    })
+            fetch(domain + "/api/v1/playback", {
+                method: "post",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    progress_ms: response.progress_ms,
+                    is_playing: response.is_playing,
+                    name: response.item.name,
+                    artist: response.item.artists[0].name
                 })
-                .then((response) => {
-                    console.log('sent playback data to server');
-                });
+            })
         });
 
         spotifyPlayer.on('login', user => {
@@ -42,8 +69,15 @@
             }
         });
 
-        spotifyPlayer.init();
-        spotifyPlayer.login();
+        function initSpotifyConnect() {
+            var ip = window.document.body.getElementsByClassName("searchbar").item(0).value;
+            if (ip === "")
+                domain = "http://localhost:3000";
+            else
+                domain = ip;
+            spotifyPlayer.init();
+            spotifyPlayer.login();
+        }
     </script>
 </body>
 

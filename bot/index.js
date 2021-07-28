@@ -53,15 +53,16 @@ app.post('/api/v1/playback', (req, res) => {
         isPlaying = true;
     }
 
-    if (!current.includes(req.body.name) && client.distube.isPlaying(container))
-        client.distube.skip(container);
+    // if (!current.includes(req.body.name) && client.distube.isPlaying(container))
+    //     client.distube.skip(container);
 
     if (currentHandle !== `${req.body.artist} - ${req.body.name}`) {
         currentHandle = `${req.body.artist} - ${req.body.name}`;
-        try {
-            client.distube.skip(container);
-        } catch {}
+        // try {
+        //     client.distube.skip(container);
+        // } catch {}
         client.distube.play(container, `${req.body.artist} - ${req.body.name}`);
+
         currentHandle = `${req.body.artist} - ${req.body.name}`;
     }
     res.sendStatus(200);
@@ -96,9 +97,9 @@ client.on('message', message => {
             message.channel.send(`**There's already a session running right now. Please wait until this Session ends or use \`/exit\` to end your current Session.**`)
         }
     }
-    if (message.content === `${prefix}fixPlayback`) {
+    if (message.content === `${prefix}skip`) {
         client.distube.skip(message);
-        message.channel.send(`**Fixed playback lag.**`)
+        message.channel.send(`**Skipped 1 Track!**`)
     }
     if (message.content === `${prefix}exit`) {
         if (currentUser === message.author.id) {
