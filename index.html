@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Connect</title>
+    <script src="https://spotify-player.herokuapp.com/spotify-player.js"></script>
+</head>
+
+<body>
+    <script>
+        var spotifyPlayer = new SpotifyPlayer();
+
+        spotifyPlayer.on('update', response => {
+
+            console.log(response.item.name)
+            fetch("http://localhost:42069/api/v1/playback", {
+                    method: "post",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        progress_ms: response.progress_ms,
+                        is_playing: response.is_playing,
+                        name: response.item.name,
+                        artist: response.item.artists[0].name
+                    })
+                })
+                .then((response) => {
+                    console.log('sent playback data to server');
+                });
+        });
+
+        spotifyPlayer.on('login', user => {
+            if (user === null) {
+                // no user
+            } else {
+                // say hello to the user, and tell them to play something!
+            }
+        });
+
+        spotifyPlayer.init();
+        spotifyPlayer.login();
+    </script>
+</body>
+
+</html>
