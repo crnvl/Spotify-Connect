@@ -9,17 +9,17 @@
  ### Required software & Setup
  1. NodeJS >> [[download](https://nodejs.org/en/)]
  2. Python >> [[download](https://www.python.org/downloads/)]<br>
- Make sure, that both installations also added their variables to your `PATH`. In order to check, if they did, please [click here]()
+ Make sure, that both installations also added their variables to your `PATH`. In order to check, if they did, please [click here](https://github.com/angelsflyinhell/Spotify-Connect#how-to-check-if-my-installation-has-been-added-to-path)
  3. [Download](https://github.com/angelsflyinhell/Spotify-Connect/archive/refs/heads/main.zip) this repository onto your PC
  4. Extract the `.zip` file and go into the new folder called `Spotify-Connect`
  5. Open `./bot/config.json` and fill out the fields. Then head back into the root directory
  6. Inside of this folder, open your Command Line or Terminal and type `npm install`
  7. After the installation has been completed, you can run `npm run dev` to start the Server
  8. Now open the `index.html` in your preferred browser and connect your Spotify Account
- 9. If you already invited your Bot Account, you can now join a voicechat and type `<prefix>listen` to start controlling the Music Bot using your Spotify Client. If you don't know, how to create a discord Bot Account, please [click here]()
+ 9. If you already invited your Bot Account, you can now join a voicechat and type `<prefix>listen` to start controlling the Music Bot using your Spotify Client. If you don't know, how to create a discord Bot Account, please [click here](https://github.com/angelsflyinhell/Spotify-Connect#how-to-check-if-my-installation-has-been-added-to-path)
 
 # Contribute
-Please feel free to contribute to this project. You can always create [Issues](https://github.com/angelsflyinhell/Spotify-Connect/issues) or [Pull Requests](https://github.com/angelsflyinhell/Spotify-Connect/pulls) or take a look at our current [todo list]() and do some tasks on there, if you like. If you do so, please create a Pull Request, which adds your name to the task you're working on. For example `Invert Binary Tree (angelsflyinhell)`
+Please feel free to contribute to this project. You can always create [Issues](https://github.com/angelsflyinhell/Spotify-Connect/issues) or [Pull Requests](https://github.com/angelsflyinhell/Spotify-Connect/pulls) or take a look at our current [todo List](https://github.com/angelsflyinhell/Spotify-Connect#how-to-check-if-my-installation-has-been-added-to-path) and do some tasks on there, if you like. If you do so, please create a Pull Request, which adds your name to the task you're working on. For example `Invert Binary Tree (angelsflyinhell)`
 
 # Resources
  This project couldn't be possible without the following resources.
