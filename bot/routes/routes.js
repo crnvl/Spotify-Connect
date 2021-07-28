@@ -1,17 +1,3 @@
-const {
-    URLSearchParams
-} = require('url'); // can also use form-data
-const axios = require('axios');
-const path = require('path');
-const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
-const { buildPayload } = require('../apiUtils');
-
-const credemtials = require('../oauth.json');
-const {
-    port
-} = require('../config.json');
-
 var apiRouter = function (app, states, client) {
 
     app.get('/', (req, res) => {
