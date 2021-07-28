@@ -14,7 +14,7 @@
  4. Extract the `.zip` file and go into the new folder called `Spotify-Connect`
  5. Open `./bot/config.json` and fill out the fields. Then head back into the root directory
  6. Inside of this folder, open your Command Line or Terminal and type `npm install`
- 7. After the installation has been completed, you can run `npm run dev` to start the Server
+ 7. After the installation has been completed, you can run `npm run main` to start the Server
  8. Now open the `index.html` in your preferred browser and connect your Spotify Account
  9. If you already invited your Bot Account, you can now join a voicechat and type `<prefix>listen` to start controlling the Music Bot using your Spotify Client. If you don't know, how to create a discord Bot Account, please [click here](https://github.com/angelsflyinhell/Spotify-Connect#how-to-check-if-my-installation-has-been-added-to-path)
 
