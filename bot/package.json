@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@discordjs/opus": "^0.5.3",
+    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "discord.js": "^12.5.3",
     "distube": "^2.8.15",
@@ -9,7 +10,9 @@
     "https": "^1.0.0",
     "merge-options": "^3.0.4",
     "node-fetch": "^2.6.1",
+    "path": "^0.12.7",
     "spotify-url-info": "^2.2.3",
+    "url": "^0.11.0",
     "ytpl": "^2.2.1",
     "ytsr": "^3.5.0"
   },

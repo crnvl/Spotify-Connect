@@ -14,13 +14,15 @@ client.distube = new DisTube(client, {
     searchSongs: false,
     emitNewSongOnly: true
 });
-let container = "",
-    currentHandle,
-    isPlaying = true,
-    isStarted = false,
-    current = "",
-    isSession = false,
-    currentUser = "";
+
+//states
+const states = {
+    container: "",
+    currentHandle: "",
+    isPlaying: true,
+    isStarted: false,
+    currentUser: ""
+}
 
 //setup
 const app = express();
@@ -37,36 +39,8 @@ app.use(function (req, res, next) {
 });
 
 
-//routes
-app.post('/api/v1/playback', (req, res) => {
 
-    if (!isStarted) {
-        res.sendStatus(403);
-        return;
-    }
-
-    if (!req.body.is_playing && isPlaying) {
-        client.distube.pause(container);
-        isPlaying = false;
-    } else if (req.body.is_playing && !isPlaying) {
-        client.distube.resume(container);
-        isPlaying = true;
-    }
-
-    // if (!current.includes(req.body.name) && client.distube.isPlaying(container))
-    //     client.distube.skip(container);
-
-    if (currentHandle !== `${req.body.artist} - ${req.body.name}`) {
-        currentHandle = `${req.body.artist} - ${req.body.name}`;
-        // try {
-        //     client.distube.skip(container);
-        // } catch {}
-        client.distube.play(container, `${req.body.artist} - ${req.body.name}`);
-
-        currentHandle = `${req.body.artist} - ${req.body.name}`;
-    }
-    res.sendStatus(200);
-});
+require("./routes/routes.js")(app, states, client);
 
 client.login(token);
 
@@ -88,22 +62,25 @@ client.once('disconnect', () => {
 client.on('message', message => {
     if (!message.content.startsWith(prefix)) return;
     if (message.content === `${prefix}listen`) {
-        if (!isStarted) {
-            container = message;
-            console.log(`[Spotify Connect Server] Started listening to playback! ${container}`)
-            isStarted = true;
-            currentUser = message.author.id;
-            message.channel.send(`**Spotify Connect Server is now listening to your playback.\nUse \`/exit\` to end your session.**`)
+        if (!states.isStarted) {
+            states.container = message;
+            console.log(`[Spotify Connect Server] Started listening to playback! ${states.container}`)
+            states.isStarted = true;
+            states.currentUser = message.author.id;
+            message.channel.send(`**Spotify Connect Server is now listening to your playback.\nUse \`${prefix}exit\` to end your session.**`)
         } else {
-            message.channel.send(`**There's already a session running right now. Please wait until this Session ends or use \`/exit\` to end your current Session.**`)
+            message.channel.send(`**There's already a session running right now. Please wait until this Session ends or use \`${prefix}exit\` to end your current Session.**`)
         }
     }
     if (message.content === `${prefix}skip`) {
         client.distube.skip(message);
-        message.channel.send(`**Skipped 1 Track!**`)
+        message.channel.send(`**Skipped a Track!**`)
     }
     if (message.content === `${prefix}exit`) {
-        if (currentUser === message.author.id) {
+        if (currentUser.includes(message.author.id)) {
+            states.isStarted = false;
+            client.distube.stop(message);
+            states.currentHandle = "";
             message.channel.send(`**Ended your Session.**`)
         } else {
             message.channel.send(`**You're not the owner of this Session. Please wait until the current Session ends.**`)
@@ -112,5 +89,5 @@ client.on('message', message => {
 })
 
 client.distube.on("playSong", (message, queue, song) => {
-    current = song.name;
+    states.current = song.name;
 });
