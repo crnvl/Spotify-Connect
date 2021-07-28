@@ -40,7 +40,6 @@
   <p align="center">
     Spotify Connect allows you to use your Spotify playback information in Discord voicechats.
     <br />
-    <a href="https://github.com/angelsflyinhell/Spotify-Connect/wiki"><strong>Read the wiki »</strong></a>
     <br />
     <br />
     <a href="http://connect.4c3711.xyz">View Demo</a>
