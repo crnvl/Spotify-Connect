@@ -85,9 +85,9 @@
 [![Product Name Screen Shot][product-screenshot]](http://connect.4c3711.xyz)
 ### Built With
 
-* []()
-* []()
-* []()
+* [node.js](https://nodejs.org/en/)
+* [express](https://www.npmjs.com/package/express)
+* [discord.js](https://www.npmjs.com/package/discord.js)
 
 
 
@@ -176,4 +176,4 @@ Project Link: [https://github.com/angelsflyinhell/Spotify-Connect](https://githu
 [issues-url]: https://github.com/angelsflyinhell/Spotify-Connect/issues
 [license-shield]: https://img.shields.io/github/license/angelsflyinhell/Spotify-Connect.svg?style=for-the-badge
 [license-url]: https://github.com/angelsflyinhell/Spotify-Connect/blob/master/LICENSE.txt
-[product-screenshot]: https://cdn.4c3711.xyz/chrome_uySMxZ3rxW.png
+[product-screenshot]: /images/banner.png
