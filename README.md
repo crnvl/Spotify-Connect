@@ -81,6 +81,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+This repository includes both the server and the client for Spotify Connect. However, for setting this up yourself, you'll only need the server. To access the client, you can just head over to [Spotify Connect](http://connect.4c3711.xyz) and fill in the IP of the server. If your server is hosted on `localhost:3000`, you can also leave this field empty.
+
+***
 [![Product Name Screen Shot][product-screenshot]](http://connect.4c3711.xyz)
 ### Built With
 
