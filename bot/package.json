@@ -9,7 +9,7 @@
     "ffmpeg-static": "^4.4.0",
     "https": "^1.0.0",
     "merge-options": "^3.0.4",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "path": "^0.12.7",
     "spotify-url-info": "^2.2.3",
     "url": "^0.11.0",
